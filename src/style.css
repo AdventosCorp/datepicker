@@ -1,0 +1,138 @@
+datepicker {
+    font-family: "Segoe UI Light", "Segoe UI", Segoe, Tahoma, Helvetica, Arial, sans-serif;
+}
+
+datepicker * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+datepicker .datepicker-container {
+    width: 100%;
+    position: relative;
+}
+
+datepicker .datepicker-container.disabled, datepicker .datepicker-container.disabled .datepicker-input, datepicker .datepicker-container.disabled .datepicker-fake-input input {
+    background-color: #ebebe4 !important;
+}
+
+datepicker .datepicker-input {
+    width: 100%;
+    height: 34px;
+    background-color: #fff;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+}
+
+datepicker .datepicker-fake-input input {
+    width: 2em;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+datepicker .datepicker-fake-input input::-webkit-outer-spin-button, datepicker .datepicker-fake-input input::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+datepicker .datepicker-icon {
+    background-size: 24px 24px;
+    height: 24px;
+    width: 24px;
+}
+
+datepicker .datepicker-icon-arrow {
+    position: absolute;
+    top: 7px;
+    right: 12px;
+    cursor: pointer;
+    background: url('images/down_arrow.svg');
+}
+
+datepicker .datepicker-icon-clear {
+    display: none;
+    position: absolute;
+    top: 7px;
+    right: 30px;
+    cursor: pointer;
+    background: url('images/clear.svg');
+}
+
+datepicker .datepicker-icon-clear:hover {
+    color: red;
+}
+
+datepicker:hover .datepicker-icon-clear {
+    display: block;
+}
+
+datepicker .datepicker-picker {
+    border: 1px solid #ccc;
+    background-color: white;
+    position: absolute;
+    top: 33px;
+    left: 0;
+    width: 100%;
+    padding: 6px 12px;
+}
+
+datepicker .datepicker-selector {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    padding: 0 12px;
+}
+
+datepicker .datepicker-selector button {
+    background-color: transparent;
+    border: 0;
+    font-weight: bold;
+    outline: 0;
+    cursor: pointer;
+}
+
+datepicker .datepicker-calendar {
+    margin-top: 10px;
+    display: inline-table;
+}
+
+datepicker .datepicker-day {
+    display: inline-block;
+    width: 14.2%;
+    line-height: 30px;
+    text-align: center;
+}
+
+datepicker .datepicker-date {
+    cursor: pointer;
+}
+
+datepicker .datepicker-date:hover {
+    background-color: #337ab7;
+    color: #fff;
+}
+
+datepicker .datepicker-today {
+    background-color: #eee;
+}
+
+datepicker .datepicker-selected {
+    background-color: #2d679a !important;
+    color: #fff;
+}
+
+datepicker .datepicker-weekday {
+    font-weight: bold;
+}

@@ -1,177 +1,12 @@
+var template = require('./template.html');
+require('./style.css');
+
 angular.module('datepicker', []).component('datepicker', {
         bindings: {
             date: '=',
             disabled: '@'
         },
-        template: `
-        <style>
-            datepicker {
-                font-family: "Segoe UI Light", "Segoe UI", Segoe, Tahoma, Helvetica, Arial, sans-serif;
-            }
-
-            datepicker *{
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                box-sizing: border-box;
-            }
-
-            datepicker .datepicker-container {
-                width: 100%;
-                position: relative;
-            }
-
-            datepicker .datepicker-container.disabled,
-            datepicker .datepicker-container.disabled .datepicker-input,
-            datepicker .datepicker-container.disabled .datepicker-fake-input input {
-                background-color: #ebebe4 !important;
-            }
-
-            datepicker .datepicker-input {
-                width: 100%;
-                height: 34px;
-                background-color: #fff;
-                padding: 6px 12px;
-                border: 1px solid #ccc;
-                font-size: 14px;
-                line-height: 1.42857143;
-                color: #555;
-            }
-
-            datepicker .datepicker-fake-input input{
-                width: 2em;
-                border: 0;
-                outline: 0;
-                text-align: center;
-                font-size: 14px;
-            }
-
-            datepicker .datepicker-fake-input input::-webkit-outer-spin-button,
-            datepicker .datepicker-fake-input input::-webkit-inner-spin-button {
-                display: none;
-                -webkit-appearance: none;
-                margin: 0;
-            }
-
-            datepicker .datepicker-icon {
-                position: absolute;
-                top: 7px;
-                right: 12px;
-                cursor: pointer;
-            }
-
-            datepicker .datepicker-icon-clear {
-                display: none;
-                position: absolute;
-                top: 7px;
-                right: 30px;
-                cursor: pointer;
-            }
-
-            datepicker .datepicker-icon-clear:hover {
-                color: red;
-            }
-
-            datepicker:hover .datepicker-icon-clear{
-                display: block;
-            }
-
-            datepicker .datepicker-picker {
-                border: 1px solid #ccc;
-                background-color: white;
-                position: absolute;
-                top: 33px;
-                left: 0;
-                width: 100%;
-                padding: 6px 12px;
-            }
-
-            datepicker .datepicker-selector{
-                display: inline-block;
-                text-align: center;
-                width: 100%;
-                font-weight: bold;
-                padding: 0 12px;
-            }
-
-            datepicker .datepicker-selector button{
-                background-color: transparent;
-                border: 0;
-                font-weight: bold;
-                outline: 0;
-                cursor: pointer;
-            }
-
-            datepicker .datepicker-calendar {
-                margin-top: 10px;
-                display: inline-table;
-            }
-
-            datepicker .datepicker-day {
-                display: inline-block;
-                width: 14.2%;
-                line-height: 30px;
-                text-align: center;
-            }
-
-            datepicker .datepicker-date {
-                cursor: pointer;
-            }
-
-            datepicker .datepicker-date:hover {
-                background-color: #337ab7;
-                color: #fff;
-            }
-
-            datepicker .datepicker-today {
-                background-color: #eee;
-            }
-
-            datepicker .datepicker-selected {
-                background-color: #2d679a !important;
-                color: #fff;
-            }
-
-            datepicker .datepicker-weekday {
-                font-weight: bold;
-            }
-        </style>
-
-        <div class="datepicker-container" ng-class="{ 'disabled': $ctrl.disabled }">
-            <div class="datepicker-input">
-                <div class="datepicker-fake-input">
-                    <input type="number" placeholder="MM" ng-model="$ctrl.selected_month" ng-blur="$ctrl.update_selected_date()" ng-disabled="$ctrl.disabled" /> <span>/</span>
-                    <input type="number" placeholder="DD" ng-model="$ctrl.selected_day" ng-blur="$ctrl.update_selected_date()" ng-disabled="$ctrl.disabled" /> <span>/</span>
-                    <input type="number" placeholder="YYYY" ng-model="$ctrl.selected_year" ng-blur="$ctrl.update_selected_date()" ng-disabled="$ctrl.disabled" style="width:3em;"/>
-                </div>
-                <span class="datepicker-icon" ng-click="$ctrl.toggle_calendar()">▼</span>
-                <span class="datepicker-icon-clear" ng-if="$ctrl.date && !$ctrl.disabled" ng-click="$ctrl.clear()">x</span>
-            </div>
-            <div class="datepicker-picker" ng-show="$ctrl.show_calendar">
-                <div class="datepicker-selector">
-                    <button type="button" ng-click="$ctrl.change_month(-1)" style="float:left;"> « </button>
-                    <span>{{$ctrl.get_calendar_date()}}</span>
-                    <button type="button" ng-click="$ctrl.change_month(1)" style="float:right;"> » </button>
-                </div>
-
-                <div class="datepicker-calendar">
-                    <div class="datepicker-day datepicker-weekday">Su</div>
-                    <div class="datepicker-day datepicker-weekday">Mo</div>
-                    <div class="datepicker-day datepicker-weekday">Tu</div>
-                    <div class="datepicker-day datepicker-weekday">We</div>
-                    <div class="datepicker-day datepicker-weekday">Th</div>
-                    <div class="datepicker-day datepicker-weekday">Fr</div>
-                    <div class="datepicker-day datepicker-weekday">Sa</div>
-
-                    <div class="datepicker-day" ng-repeat="day in $ctrl.get_empty_days()"> </div>
-                    <div class="datepicker-day datepicker-date" ng-repeat="day in $ctrl.get_month_days()" ng-click="$ctrl.set_date(day)" ng-class="{ 'datepicker-today': $ctrl.is_day_today(day), 'datepicker-selected': $ctrl.is_day_selected(day)}">{{day}}</div>
-                </div>
-            </div>
-        </div>
-        `,
+        template: template,
         controller: function ($scope, $timeout, $element, $document) {
 
             Date.isLeapYear = function (year) {
@@ -261,6 +96,7 @@ angular.module('datepicker', []).component('datepicker', {
             }
 
             self.clear = function () {
+                console.log("aa");
                 if (self.disabled) return;
                 self.date = null;
                 self.selected_day = null;
