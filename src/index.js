@@ -96,7 +96,6 @@ angular.module('datepicker', []).component('datepicker', {
             }
 
             self.clear = function () {
-                console.log("aa");
                 if (self.disabled) return;
                 self.date = null;
                 self.selected_day = null;
