@@ -9,6 +9,8 @@ angular.module('datepicker', []).component('datepicker', {
         template: template,
         controller: function ($scope, $timeout, $element, $document) {
 
+            console.log("test");
+
             Date.isLeapYear = function (year) {
                 return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
             };
