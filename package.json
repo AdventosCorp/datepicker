@@ -2,7 +2,7 @@
   "name": "datepicker",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/datepicker.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "webpack-dev-server",
@@ -26,5 +26,8 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
+  },
+  "peerDependencies": {
+    "angular": "^1.5.0"
   }
 }

@@ -1,3 +1,4 @@
+var angular = require('angular');
 var template = require('./template.html');
 require('./style.css');
 

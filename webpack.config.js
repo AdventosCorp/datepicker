@@ -16,7 +16,13 @@ var config = {
     entry: "./src/index.js",
     output: {
         path: __dirname + "/dist",
-        filename: "datepicker.min.js"
+        filename: "datepicker.js",
+        libraryTarget: "umd",
+        library: "datepicker",
+        umdNamedDefine: true
+    },
+    externals: {
+        "angular": "angular"
     },
     module: {
         loaders: [
