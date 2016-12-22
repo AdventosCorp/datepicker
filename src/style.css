@@ -65,7 +65,7 @@ datepicker .datepicker-icon-clear {
     display: none;
     position: absolute;
     top: 7px;
-    right: 30px;
+    right: 36px;
     cursor: pointer;
     background: url('images/clear.svg');
 }
@@ -85,9 +85,14 @@ datepicker .datepicker-picker {
     top: 33px;
     left: 0;
     width: 100%;
-    padding: 6px 12px;
-    max-width: 300px;
+    padding: 6px;
+    width: 304px;
     z-index: 1;
+    -webkit-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 datepicker .datepicker-picker *{
@@ -108,6 +113,12 @@ datepicker .datepicker-selector {
     font-size: 13px;
     color: rgb(68, 68, 68);
     letter-spacing: 0.01em;
+    padding:0 9px;
+    -webkit-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 datepicker .datepicker-selector button {
@@ -134,10 +145,6 @@ datepicker .datepicker-calendar *{
     width: initial;
 }
 
-datepicker .datepicker-day {
-    
-}
-
 datepicker .datepicker-date {
     background-color: transparent;
     cursor: pointer;
@@ -148,7 +155,7 @@ datepicker .datepicker-date {
 datepicker .datepicker-day{
     display: inline-block;
     width: 14.2%;
-    line-height: 30px;
+    line-height: 36px;
     text-align: center;
 }
 datepicker .datepicker-date:hover {
