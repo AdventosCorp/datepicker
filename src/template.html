@@ -16,16 +16,7 @@
         </div>
 
         <div class="datepicker-calendar">
-            <div class="datepicker-day datepicker-weekday">Su</div>
-            <div class="datepicker-day datepicker-weekday">Mo</div>
-            <div class="datepicker-day datepicker-weekday">Tu</div>
-            <div class="datepicker-day datepicker-weekday">We</div>
-            <div class="datepicker-day datepicker-weekday">Th</div>
-            <div class="datepicker-day datepicker-weekday">Fr</div>
-            <div class="datepicker-day datepicker-weekday">Sa</div>
-
-            <div class="datepicker-day" ng-repeat="day in $ctrl.get_empty_days()"> </div>
-            <div class="datepicker-day datepicker-date" ng-repeat="day in $ctrl.get_month_days()" ng-click="$ctrl.set_date(day)" ng-class="{ 'datepicker-today': $ctrl.is_day_today(day), 'datepicker-selected': $ctrl.is_day_selected(day)}">{{day}}</div>
+            <div class="datepicker-day datepicker-weekday">Su</div><div class="datepicker-day datepicker-weekday">Mo</div><div class="datepicker-day datepicker-weekday">Tu</div><div class="datepicker-day datepicker-weekday">We</div><div class="datepicker-day datepicker-weekday">Th</div><div class="datepicker-day datepicker-weekday">Fr</div><div class="datepicker-day datepicker-weekday">Sa</div><div class="datepicker-day" ng-repeat="day in $ctrl.get_empty_days()">&#32;</div><div class="datepicker-day datepicker-date" ng-repeat="day in $ctrl.get_month_days()" ng-click="$ctrl.set_date(day)" ng-class="{ 'datepicker-today': $ctrl.is_day_today(day), 'datepicker-selected': $ctrl.is_day_selected(day)}">{{day}}</div>
         </div>
     </div>
 </div>
