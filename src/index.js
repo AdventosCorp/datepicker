@@ -105,6 +105,7 @@ angular.module('datepicker', []).component('datepicker', {
             }
 
             self.open_calendar = function () {
+                if(self.show_calendar == true) return;
                 if (self.date) {
                     self.visible_date = new Date(self.date);
                 } else {
@@ -151,16 +152,14 @@ angular.module('datepicker', []).component('datepicker', {
             }
 
             self.update_selected_date = function () {
-                console.log("update");
-                if (!self.selected_month && !self.selected_day && !self.selected_year) return;
-                if (!self.date) self.date = new Date();
+                var temp_date = null;
 
                 // Year
                 if (self.selected_year) {
                     if (self.selected_year > 9999) self.selected_year = 9999;
-                    if (self.selected_year < 1) self.selected_year = 1;
+                    if (self.selected_year < 1000) self.selected_year = 1000;
                 } else {
-                    self.selected_year = self.today.getFullYear();
+                    self.selected_year = "";
                 }
 
                 // Month
@@ -168,34 +167,48 @@ angular.module('datepicker', []).component('datepicker', {
                     if (self.selected_month > 12) self.selected_month = 12;
                     if (self.selected_month < 1) self.selected_month = 1;
                 } else {
-                    self.selected_month = self.today.getMonth() + 1;
+                    self.selected_month = "";
                 }
 
-                // Date
+                // Day
                 if (self.selected_day) {
-                    var d = new Date(self.date);
-                    var old_day = d.getDate();
-                    d.setMonth(self.selected_month - 1);
-                    if(d.getDate() != old_day){
-                        d.setDate(0);
-                    }
-                    var max = d.getDaysInMonth();
-                    if (self.selected_day > max) self.selected_day = max;
+                    if (self.selected_day > 31) self.selected_day = 31;
                     if (self.selected_day < 1) self.selected_day = 1;
                 } else {
-                    self.selected_day = self.today.getDate();
+                    self.selected_day = "";
                 }
 
-                // Update model
-                self.date.setFullYear(self.selected_year);
-                self.date.setMonth(self.selected_month - 1);
-                self.date.setDate(self.selected_day);
+                if (self.selected_month && self.selected_day && self.selected_year) {
+                    var d = new Date();
+                    d.setDate(1);
+                    d.setFullYear(self.selected_year);
+                    d.setMonth(self.selected_month - 1);
+                    var max = d.getDaysInMonth();
 
-                self.visible_date = new Date(self.date);
+                    if (self.selected_day > max) {
+                        self.selected_day = "";
+                    } else {
+                        d.setDate(self.selected_day);
+                        temp_date = new Date(d);
+                    }
+                }
+
+                if(!temp_date || !self.date) {
+                    self.date = temp_date;
+                } else {
+                    self.date.setFullYear(temp_date.getFullYear());
+                    self.date.setMonth(temp_date.getMonth());
+                    self.date.setDate(temp_date.getDate());
+                }
+
+                if(self.date){
+                    self.visible_date = new Date(self.date);
+                }
             }
 
             $scope.$watch('$ctrl.date', function (newValue, oldValue) {
-                if (self.date) {
+                console.log("Date:",self.date);
+                if(self.date){
                     self.selected_day = self.date.getDate();
                     self.selected_month = self.date.getMonth() + 1;
                     self.selected_year = self.date.getFullYear();
