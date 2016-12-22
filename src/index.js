@@ -203,9 +203,8 @@ angular.module('datepicker', []).component('datepicker', {
                     self.date.setDate(temp_date.getDate());
                 }
 
-                if(self.date){
-                    self.visible_date = new Date(self.date);
-                }
+                if(self.selected_year) self.visible_date.setFullYear(self.selected_year);
+                if(self.selected_month) self.visible_date.setMonth(self.selected_month - 1);
             }
 
             $scope.$watch('$ctrl.date', function (newValue, oldValue) {
