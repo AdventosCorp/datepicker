@@ -127,6 +127,7 @@ angular.module('datepicker', []).component('datepicker', {
 
                 self.date = new Date(self.visible_date);
                 self.date.setDate(n);
+                self.show_calendar = false;
             }
 
             self.change_month = function (n) {
@@ -150,6 +151,7 @@ angular.module('datepicker', []).component('datepicker', {
             }
 
             self.update_selected_date = function () {
+                console.log("update");
                 if (!self.selected_month && !self.selected_day && !self.selected_year) return;
                 if (!self.date) self.date = new Date();
 
@@ -166,7 +168,7 @@ angular.module('datepicker', []).component('datepicker', {
                     if (self.selected_month > 12) self.selected_month = 12;
                     if (self.selected_month < 1) self.selected_month = 1;
                 } else {
-                    self.selected_month = self.today.getMonth();
+                    self.selected_month = self.today.getMonth() + 1;
                 }
 
                 // Date
