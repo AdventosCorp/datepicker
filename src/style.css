@@ -25,6 +25,7 @@ datepicker .datepicker-input {
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
+    text-align: left;
 }
 
 datepicker .datepicker-fake-input input {
@@ -35,6 +36,7 @@ datepicker .datepicker-fake-input input {
     font-size: 14px;
     color: rgb(68, 68, 68);
     background-color: transparent;
+    padding: 0;
 }
 
 datepicker .datepicker-fake-input input::-webkit-outer-spin-button, datepicker .datepicker-fake-input input::-webkit-inner-spin-button {
