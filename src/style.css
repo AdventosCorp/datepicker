@@ -126,10 +126,18 @@ datepicker .datepicker-selector {
 datepicker .datepicker-selector button {
     background-color: transparent;
     border: 0;
-    font-weight: bolder;
+    font-weight: bold;
     outline: 0;
     cursor: pointer;
     color: rgb(68, 68, 68);
+    padding: 7px 9px;
+    margin: 0;
+}
+
+datepicker .datepicker-selector span {
+    padding: 5px 0;
+    display: inline-block;
+    font-weight: bold;
 }
 
 datepicker .datepicker-calendar {
@@ -183,11 +191,11 @@ datepicker .datepicker-selected, datepicker .datepicker-selected:hover {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 datepicker .datepicker-weekday {
-    font-weight: bolder;
+    font-weight: bold;
     font-size: 10px;
     color: rgb(68, 68, 68);
     cursor: default;
