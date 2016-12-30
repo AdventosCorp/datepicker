@@ -5,6 +5,7 @@ require('./style.css');
 angular.module('datepicker', []).component('datepicker', {
         bindings: {
             date: '=',
+            parseIso: '@',
             disabled: '@'
         },
         template: template,
@@ -209,6 +210,9 @@ angular.module('datepicker', []).component('datepicker', {
 
             $scope.$watch('$ctrl.date', function (newValue, oldValue) {
                 if(self.date){
+                    if(self.parseIso == "true" && typeof(self.date) == 'string'){
+                        self.date = new Date(self.date);
+                    }
                     self.selected_day = self.date.getDate();
                     self.selected_month = self.date.getMonth() + 1;
                     self.selected_year = self.date.getFullYear();

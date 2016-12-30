@@ -7,7 +7,8 @@
     </head>
     <body>
         <div ng-app="myApp" ng-controller="myController">
-            <datepicker date="date" ng-disabled="disable_input"></datepicker>
+            <datepicker date="date" ng-disabled="disable_input" parse-iso="false"></datepicker>
+            <datepicker date="date_iso" ng-disabled="disable_input" parse-iso="true"></datepicker>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js" charset="utf-8"></script>
         <script src="datepicker.js" charset="utf-8"></script>
@@ -15,6 +16,7 @@
             var myApp = angular.module('myApp', ['datepicker']);
             myApp.controller('myController', function ($scope) {
                 $scope.disable_input = false;
+                $scope.date_iso = new Date().toISOString();
                 $scope.date = new Date();
             });
         </script>
